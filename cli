@@ -2,6 +2,9 @@ kubectl create namespace ingress-nginx
 helm install ingress-nginx . --namespace ingress-nginx --dry-run|grep Source:
 helm install ingress-nginx . --namespace ingress-nginx 
 
+helm list --namespace ingress-nginx
+helm status ingress-nginx --namespace ingress-nginx
+
 kubectl get services --namespace ingress-nginx
 kubectl describe services --namespace ingress-nginx
 kubectl get pods --namespace ingress-nginx -o jsonpath={.items[*].spec.containers[*].name}
