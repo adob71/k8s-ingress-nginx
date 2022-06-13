@@ -1,0 +1,11 @@
+kubectl create namespace ingress-nginx
+helm install ingress-nginx . --namespace ingress-nginx 
+
+kubectl get services --namespace ingress-nginx
+kubectl describe services --namespace ingress-nginx
+kubectl get pods --namespace ingress-nginx -o jsonpath={.items[*].spec.containers[*].name}
+kubectl describe pods --namespace ingress-nginx
+
+helm uninstall ingress-nginx --namespace ingress-nginx 
+kubectl delete namespace ingress-nginx
+
